@@ -1,4 +1,4 @@
-const Professor = require('./professorModel')
+const { professors } = require('./index');
 
 module.exports = (sequelize, DataTypes) => {
     const Department = sequelize.define('Department', {
@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       
     });
     
-  Department.belongsTo(Professor, { foreignKey: 'head' });
+  Department.belongsTo(professors, { foreignKey: 'head' });
 
 return Department;
   };

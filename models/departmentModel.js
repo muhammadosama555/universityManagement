@@ -11,14 +11,16 @@ module.exports = (sequelize, DataTypes) => {
       name: {
         type: DataTypes.STRING,
         allowNull: false
+      },
+      head: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: 'Professor', referencesKey: 'id'
       }
-
+     
       
     });
     
-  
-       // Create the foreign key relationship
-Department.belongsTo(Professor, { foreignKey: 'head' });
   
 return Department;
   };

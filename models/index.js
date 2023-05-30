@@ -36,6 +36,8 @@ db.departments = require('./departmentModel')(sequelize,DataTypes);
 
 
 
+
+
 db.sequelize.sync({force:false})
 .then(()=>{
     console.log('yes-resync done');

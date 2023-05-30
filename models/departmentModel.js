@@ -1,4 +1,3 @@
-const { professors } = require('.');
 const Professor = require('./professorModel')
 
 module.exports = (sequelize, DataTypes) => {
@@ -11,7 +10,15 @@ module.exports = (sequelize, DataTypes) => {
       name: {
         type: DataTypes.STRING,
         allowNull: false
+      }, 
+head: { 
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'Professors', // sequelize creates plural names
+        key: 'id'
       }
+    } 
 
       
     });

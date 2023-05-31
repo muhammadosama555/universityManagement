@@ -27,20 +27,28 @@ const db ={}
 db.Sequelize=Sequelize
 db.sequelize=sequelize
 
-db.students= require('./studentModel.js')(sequelize,DataTypes)
-db.courses= require('./Courses')(sequelize,DataTypes)
-db.professors= require('./professorModel.js')(sequelize,DataTypes)
-db.departments = require('./departmentModel')(sequelize,DataTypes);
+db.students= require('./studentModel')(sequelize,DataTypes)
+db.courses= require('./courseModel')(sequelize,DataTypes)
+db.professors= require('./professorModel')(sequelize,DataTypes)
+db.departments=require("./departmentModel")(sequelize,DataTypes)
+db.enrollments = require('./enrollmentModel')(sequelize, DataTypes);
+db.courseAssignments = require('./courseAssignmentModel')(sequelize, DataTypes);
+db.departmentcourses= require('./departmentCoursesModel')(sequelize, DataTypes);
+
+
+
+
+db.sequelize.sync({ force: false })
+  .then(() => {
+    console.log('Database synchronized');
+  })
+  .catch((error) => {
+    console.error('Error synchronizing database:', error);
+  });
 
 
 
 
 
-
-
-db.sequelize.sync({force:false})
-.then(()=>{
-    console.log('yes-resync done');
-})
 
 module.exports=db

@@ -20,6 +20,10 @@ app.use(express.urlencoded({extended:true}))
 const studentRouter=require('./routers/studentRouter')
 const courseRouter=require('./routers/courseRouter.js')
 const professorRouter=require('./routers/professorRouter')
+const departmentRouter=require('./routers/departmentRouter')
+const enrollmentRouter=require('./routers/enrollmentRouter')
+const courseAssignmentRouter=require('./routers/courseAssignmentRouter')
+const departmentCourseRouter=require('./routers/departmentCourseRouter')
 
 
 
@@ -27,6 +31,10 @@ const professorRouter=require('./routers/professorRouter')
 app.use('/api/students',studentRouter)
 app.use('/api/courses',courseRouter)
 app.use('/api/professors',professorRouter)
+app.use('/api/departments',departmentRouter)
+app.use('/api/enrollments',enrollmentRouter)
+app.use('/api/courseAssignments',courseAssignmentRouter)
+app.use('/api/departmentCourses',departmentCourseRouter)
 
 //testing api
 app.get('/',(req,res)=>{

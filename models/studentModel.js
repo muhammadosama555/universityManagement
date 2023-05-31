@@ -1,7 +1,4 @@
-
-
-
-module.exports=(sequelize, DataTypes)=>{
+module.exports = (sequelize, DataTypes) => {
   const Student = sequelize.define('Student', {
     id: {
       type: DataTypes.INTEGER,
@@ -23,8 +20,13 @@ module.exports=(sequelize, DataTypes)=>{
     emailAddress: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
-     
-    }})
-  return Student
-}
+    },
+  });
+
+  
+
+  return Student;
+};
+
+
+
